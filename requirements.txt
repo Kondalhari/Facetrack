@@ -1,0 +1,10 @@
+psycopg[binary]==3.2.12
+# Use numpy 1.23.x for compatibility with insightface 0.7.3 (if you hit import errors, try numpy==1.23.5)
+numpy==1.23.5
+opencv-python==4.12.0.88
+insightface==0.7.3
+onnxruntime
+ultralytics==8.3.227
+torch>=2.0.0
+torchvision
+Pillow
