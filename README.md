@@ -2,6 +2,9 @@
 
 This project performs intelligent face detection, tracking, and recognition for entry/exit logging using YOLO, ByteTrack, and InsightFace.
 
+Loom - project explaination
+https://www.loom.com/share/879944448b1e4b9baee2128351a5cb4e
+
 ## Features
 - Real-time face detection and tracking
 - Face recognition and re-identification
@@ -101,39 +104,9 @@ Architecture (high level)
                                       v                         v
                                [Face crops saved]        [Database (Visitors, Events)]
 
-Generate sample outputs (quick)
-- To create small sample outputs (cropped faces + CSV) without DB, run the provided script:
 
-```powershell
-.venv\Scripts\python.exe scripts\generate_samples.py --max-frames 30 --skip 3 --headless
-```
+folders of the model and training videos are not added here in the repo
 
-This will process each video in `input_videos/`, save cropped face images to `logs/sample/YYYY-MM-DD/` and write a CSV `logs/sample/events.csv` with metadata.
 
-What to include before submission
-- Architecture diagram image (optional) — add to the repo as `docs/architecture.png`.
-- A short Loom/YouTube demo link (mandatory for hackathon review) — add the link to this README under the "Demo" section.
-- Sample outputs (run the generator and commit `logs/sample/...`), or provide download instructions.
 
-## Sample Output Artifacts
-
-✅ **Sample outputs successfully generated!**
-
-The `scripts/generate_samples.py` script has been run against all 4 input videos. Output artifacts include:
-
-- **Cropped Face Images**: 132 JPEG files saved in `logs/sample/2025-11-15/` with format:
-  - `face_<video_name>_f<frame_num>_<timestamp>.jpg`
-  - Each contains a cropped face region extracted from detected persons
-
-- **Metadata CSV**: `logs/sample/events.csv` (137 rows including header)
-  - Columns: `video`, `frame`, `box` (coordinates), `crop_path`, `has_embedding`, `embedding_len`
-  - Example: For each face detected, the bounding box, path to cropped image, and whether an embedding (512-dim InsightFace vector) was computed
-
-**Stats from sample run (30 frames per video, 3-frame skip):**
-- Videos processed: 4 (`record_20250620_*.mp4`)
-- Total detections: 137 faces
-- Faces with valid embeddings: ~90% (some small/profile faces skipped)
-- Processing time: ~2-3 min on CPU (CUDA GPU recommended for production)
-
-This demonstrates the full pipeline: YOLO detection → face crop extraction → InsightFace embedding computation → logging.
 
