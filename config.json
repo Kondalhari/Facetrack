@@ -1,0 +1,18 @@
+{
+    "db_name": "visitor_db",
+    "db_user": "postgres",
+    "db_pass": "8055",
+    "db_host": "localhost",
+    "db_port": 8055,
+    
+    "video_source": 0,
+    "frame_skip": 3,
+    
+    "similarity_threshold": 0.6,
+    "exit_timeout_seconds": 3.0,
+    
+    "entry_log_dir": "logs/entries",
+    "use_gpu": false,
+    
+    "yolo_model_path": "yolov8n-face.pt"
+}
